@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     vocabulary = build_vocab(train_data)
 
-    vectorizer = CountVectorizer(binary=True, vocabulary=vocabulary, stop_words=stop_words)
+    vectorizer = CountVectorizer(binary=True, vocabulary=vocabulary, stop_words=list(stop_words))
 
     X_train = vectorizer.fit_transform(train_data['spam'] + train_data['ham'])
     y_train = np.concatenate((np.ones(len(train_data['spam'])),
